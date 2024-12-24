@@ -51,7 +51,7 @@ pub fn part_two(input: &str) -> Option<u32> {
     let mut count: u32 = 0;
     for report in reports {
         let all_options = with_each_index_removed(report.as_slice());
-        if all_options.iter().any(|a| is_safe(a)) {
+        if all_options.iter().map(|a| a.as_slice()).any(is_safe) {
             count += 1;
         }
     }
